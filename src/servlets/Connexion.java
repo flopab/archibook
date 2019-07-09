@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,8 +12,13 @@ import javax.servlet.http.HttpSession;
 import beans.Utilisateur;
 import 	forms.ConnexionForm;
 
+@WebServlet(name = "Connexion", urlPatterns = {"/connexion"})
 public class Connexion extends HttpServlet {
-    public static final String ATT_USER         = "utilisateur";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public static final String ATT_USER         = "utilisateur";
     public static final String ATT_FORM         = "form";
     public static final String ATT_SESSION_USER = "sessionUtilisateur";
     public static final String VUE              = "/WEB-INF/connexion.jsp";
