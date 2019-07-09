@@ -19,7 +19,7 @@ public class JDBC {
     
     public boolean connection(String login, String password2) {
     	try {
-            Class.forName( "com.mysql.jdbc.Driver" );
+            Class.forName( "com.mysql.cj.jdbc.Driver" );
         } catch ( ClassNotFoundException e ) {e.getMessage();
         }
     	
@@ -53,7 +53,7 @@ public class JDBC {
     public List<String> executerTests( HttpServletRequest request ) {
         /* Chargement du driver JDBC pour MySQL */
         try {
-            Class.forName( "com.mysql.jdbc.Driver" );
+            Class.forName( "com.mysql.cj.jdbc.Driver" );
         } catch ( ClassNotFoundException e ) {
         }
 
