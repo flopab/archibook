@@ -35,7 +35,6 @@ public class JDBC {
             /* Requete preparee */
             PreparedStatement preparedStatement = connexion.prepareStatement("SELECT password FROM User WHERE login = ?");
             preparedStatement.setString(1, login);
-            System.out.println(preparedStatement);
             resultat = preparedStatement.executeQuery();
             
             /* Récupération des données du résultat de la requête de lecture */
