@@ -113,7 +113,6 @@ public final class ConnexionForm {
     	JDBC test = new JDBC();
         //List<String> messages = test.executerTests( request );
     	boolean result = test.connection(login, motDePasse);
-    	System.out.println(result);
     	if (result) {}
     	else {
     		throw new Exception( "Login ou mdp erroné" );

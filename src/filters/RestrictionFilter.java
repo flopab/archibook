@@ -21,27 +21,20 @@ public class RestrictionFilter implements Filter {
 
     public void doFilter( ServletRequest req, ServletResponse res, FilterChain chain ) throws IOException,
             ServletException {
-    	
+        /* Cast des objets request et response */
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
 
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
 
-        /* Non-filtrage des styles */
-        String chemin = request.getRequestURI().substring( request.getContextPath().length() );
-        if ( chemin.startsWith( "/style" ) ) {
-            chain.doFilter( request, response );
-            return;
-        }
         /**
          * Si l'objet utilisateur n'existe pas dans la session en cours, alors
          * l'utilisateur n'est pas connecté.
          */
         if ( session.getAttribute( ATT_SESSION_USER ) == null ) {
             /* Redirection vers la page publique */
-        	chain.doFilter(request, response);
-            //request.getRequestDispatcher( ACCES_CONNEXION ).forward( request, response );
+            request.getRequestDispatcher( ACCES_CONNEXION ).forward( request, response );
         } else {
             /* Affichage de la page restreinte */
             chain.doFilter( request, response );
